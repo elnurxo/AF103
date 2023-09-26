@@ -1,0 +1,67 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML forms</title>
+</head>
+
+<body>
+    <!-- fullname, age, email, password, terms of use,gender -->
+    <h1>Register Student Form</h1>
+    <form id="register-form">
+        <div class="full-name">
+            <label for="full-name">Full Name</label>
+            <input id="full-name" name="full-name" type="text" placeholder="enter your fullname..." required>
+        </div>
+        <div class="age">
+            <label for="age">Age</label>
+            <input  id="age" name="age" type="number" placeholder="enter your age..." min="17" max="30" required>
+        </div>
+        <div class="email">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="enter your email...">
+        </div>
+        <div class="password">
+            <label for="password">Password</label>
+            <input id="password" name="password" type="password" placeholder="set your password...">
+        </div>
+        <div class="confirm-password">
+            <label for="confirm-password">Password</label>
+            <input id="confirm-password" name="confirm-password" type="password" placeholder="confirm your password...">
+        </div>
+        <div class="terms-of-use">
+            <label for="terms-of-use">Terms of Use</label>
+            <input id="terms-of-use" name="terms-of-use" type="checkbox">
+        </div>
+        <div class="gender">
+            <p>Select your Gender: </p>
+            <label for="male">Male</label>
+            <input name="gender" id="male" type="radio">
+            <label for="female">Female</label>
+            <input name="gender" id="female" type="radio"> 
+        </div>
+        <div class="birth-date">
+            <label for="birth-date">Select your Birth-Date</label>
+            <input id="birth-date" name="birth-date" type="date">
+        </div>
+        <div class="profile-pic">
+            <label for="profile">Upload Image</label>
+            <input id="profile" name="profile" type="file" accept="image/png, image/jpeg">
+        </div>
+        <div class="hair-color">
+            <label for="hair-color">Hair Color</label>
+            <input id="hair-color" name="hair-color" type="color">
+        </div>
+        <div class="credit">
+            <label for="credit">Credit</label>
+            <input type="range" min="100" max="1000" value="100" step="200" >
+        </div>
+
+        <button type="submit">Register New Student</button>
+        <button type="reset">Cancel</button>
+    </form>
+    
+</body>
+
+</html>
