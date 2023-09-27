@@ -1,0 +1,31 @@
+h1{
+    color: red;
+}
+button:hover+h1{
+    background-color: black;
+}
+li:first-child{
+    color: red;
+}
+li:last-child{
+    color: blue;
+}
+li:nth-child(3n+1){
+    color: green;
+}
+p:first-child{
+    color: darkmagenta;
+}
+span:last-of-type{
+    color: darkkhaki;
+}
+input:focus{
+    background-color: black;
+}
+p:empty{
+
+}
+a:visited{
+    font-size: 40px;
+    color: blue;
+}

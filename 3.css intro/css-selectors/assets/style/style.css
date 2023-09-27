@@ -1,0 +1,40 @@
+h1{
+    color: red;
+}
+.desc{
+    color: blue;
+}
+#google{
+    color: crimson;
+}
+#title.class-1{
+    background-color:blueviolet;
+}
+.p-1 .p-2{
+    color:aquamarine;
+}
+/* universal selector */
+/* *{
+    background-color: black;
+} */
+p#text{
+    color: red;
+}
+span h5{
+    color: darkgoldenrod;
+}
+span>h5{
+    color: white;
+}
+ul+p+p{
+    color: aqua;
+}
+p~ul{
+    color: aqua;
+}
+[href]{
+    color: azure;
+}
+[href~="galaxy"]{
+    background-color:beige;
+}
