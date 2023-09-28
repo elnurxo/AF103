@@ -1,0 +1,28 @@
+/* color name, rgb, rgba, hex code, hsl, hsla */
+
+li:first-child{
+    color:aqua;
+}
+
+li:nth-child(2){
+    /* red green blue */
+    color: rgb(82, 145, 50);
+}
+
+li:nth-child(3){
+    /* rgba */
+    /* red green blue alpha */
+    color: rgba(256, 256, 0, 1);
+}
+
+li:nth-child(4){
+    color: 	#808000a5;
+}
+
+li:nth-child(5){
+    color: 	hsl(0, 100%, 50%);
+}
+
+li:nth-child(6){
+    color: 	hsla(50, 100%, 50%, 0.6);
+}

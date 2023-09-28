@@ -1,0 +1,45 @@
+/* px, em, rem, %, vh, vw */
+/* viewport height, viewport width */
+/* 1 em = 16px */
+/* 1 rem = 16px */
+*{
+    margin: 0;
+    padding: 0;
+}
+h1{
+    font-size: 30px;
+}
+p:first-of-type{
+    font-size: 20px;
+}
+article{
+    font-size: 16px;
+}
+p:nth-of-type(2){
+    /* 60px */
+    font-size: 2em;
+}
+p:nth-of-type(3){
+    /* 32px */
+    font-size: 2rem;
+}
+.box{
+    width: 10%;
+    height: 10vh;
+    background-color: orange;
+    border: 2px solid yellow;
+}
+.outer-box{
+    width: 200px;
+    height: 200px;
+}
+.another-box{
+    width: 300px;
+    height: 300px;
+    border: 2px solid black;
+}
+.inner-box{
+    border: 2px solid red;
+    width: 50%;
+    height: 50%;
+}

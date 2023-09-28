@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+}
+.box {
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+}
+body{
+   height: 50vh;
+   background-color: pink;
+}
+.box-1 {
+  border: 2px solid red;
+  padding: auto 0;
+}
+.box-2 {
+  border: 2px solid green;
+}
+.box-3 {
+  border: 2px solid blue;
+}
+.inner-box{
+    background-color: yellow;
+    width: 50px;
+    height: 50px;
+    margin: auto;
+    
+}
