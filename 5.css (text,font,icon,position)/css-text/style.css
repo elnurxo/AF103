@@ -1,0 +1,33 @@
+article{
+    border: 2px solid black;
+    width: 60%;
+    margin:  0 auto;
+}
+article h1{
+    color: brown;
+    background-color: whitesmoke;
+    text-align: center;
+    /* direction: rtl;
+    unicode-bidi: bidi-override; */
+}
+article h1::selection{
+    background-color: black;
+}
+article p{
+    text-align: justify;
+    text-align-last: center;
+    text-indent: 20px;
+    letter-spacing: 1px;
+    word-spacing: 10px;
+    line-height: 1em;
+    white-space: no-wrap;
+}
+article~p{
+    /* text-decoration-line:line-through;
+    text-decoration-color:brown;
+    text-decoration-style:solid;
+    text-decoration-thickness:3px; */
+    /* text-decoration: underline black wavy 1px; */
+    text-transform:lowercase;
+    text-shadow: 1px 1px 5px red;
+}
