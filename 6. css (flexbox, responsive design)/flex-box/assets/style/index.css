@@ -1,0 +1,52 @@
+/* display - inline, block, inline-block, none */
+
+.wrapper {
+  width: 80%;
+  border: 2px solid black;
+  margin: 50px auto;
+  height: 500px;
+  display: flex;
+  /* x */
+  /* justify-content: space-between; */
+  /* y */
+  /* align-items: end; */
+  /* gap: 10px 30px; */
+  column-gap: 30px;
+  row-gap: 20px;
+}
+
+[class|="box"] {
+  height: 100px;
+  width: 100px;
+  color: white;
+  font-size: 20px;
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+}
+/* order default - 0 */
+.box-1 {
+  background-color: red;
+}
+.box-2 {
+  background-color: green;
+}
+.box-3 {
+  background-color: blue;
+}
+.box-4 {
+  background-color: orange;
+}
+.box-5 {
+  background-color: darkmagenta;
+}
+.box-6 {
+  background-color: rgb(25, 95, 95);
+}
+[class|="box"]:nth-child(odd){
+    align-self: flex-start;
+}
+[class|="box"]:nth-child(even){
+    align-self: center;
+}
+
