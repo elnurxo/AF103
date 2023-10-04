@@ -1,0 +1,25 @@
+.wrapper{
+    width: 80%;
+    margin: 0 auto;
+    border: 2px solid black;
+    height: 500px;
+    position: relative;
+}
+.wrapper .box{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    /* 1s - 1000ms */
+    /* transition-property: background-color;
+    transition-duration: 1s;
+    transition-delay: 2s;
+    transition-timing-function: linear; */
+    /* transition: background-color, 1s, linear, 2s; */
+    transition: 2s cubic-bezier(.17,1.77,.81,-0.58);
+}
+.wrapper:hover .box{
+    left: calc(100% - 100px);
+}

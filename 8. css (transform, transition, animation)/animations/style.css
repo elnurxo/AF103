@@ -1,0 +1,124 @@
+.road{
+    border-bottom: 2px solid red;
+    margin-top: 200px;
+    position: relative;
+}
+.road .car{
+    position: absolute;
+    left: 0%;
+    bottom: 0%;
+    width: 200px;
+    height: 90px;
+    animation-name: drive;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    transform: rotate(-10deg);
+}
+.road .car img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.road .car:hover{
+    animation-play-state: paused;
+}
+
+@keyframes drive {
+    from{
+        left: 0%;
+    }
+    to{
+        left: calc(100% - 100px);
+        transform: rotateY(180deg);
+    }
+}
+
+hr{
+    margin: 50px 0;
+}
+h1{
+    text-align: center;
+}
+.wrapper{
+    width: 90%;
+    margin: 0 auto;
+    border: 2px solid black;
+    height: 550px;
+    margin-bottom: 50px;
+    position: relative;
+}
+.wrapper .box{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100px;
+    height: 100px;
+    background-color:blueviolet;
+    animation: movement 7s infinite linear, color 7s infinite linear;
+}
+.wrapper .heart-emoji{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    animation: heartbeat 2s infinite linear;
+}
+.wrapper .heart-emoji span{
+    font-size: 70px;
+}
+
+@keyframes movement {
+    0%{
+        left: 0;
+        top: 0;
+    }
+    25%{
+        left: calc(100% - 100px);
+        top: 0;
+    }
+    50%{
+        left: calc(100% - 100px);
+        top: calc(100% - 100px);
+    }
+    75%{
+        left: 0;
+        top: calc(100% - 100px);
+    }
+    100%{
+        left: 0;
+        top: 0;
+    }
+}
+@keyframes color {
+    0%{
+        background-color:blueviolet;
+    }
+    25%{
+        background-color:rgb(101, 56, 224);
+    }
+    50%{
+        background-color:rgb(43, 144, 226);
+    }
+    75%{
+        background-color:rgb(43, 80, 226);
+    }
+    100%{
+        background-color:blueviolet;
+    }
+}
+@keyframes heartbeat {
+    0%{
+        transform:translate(-50%,-50%) scale(1);
+    }
+    33%{
+        transform:translate(-50%,-50%) scale(0.6);
+    }
+    66%{
+        transform:translate(-50%,-50%) scale(1.5);
+    }
+    100%{
+        transform:translate(-50%,-50%) scale(1);
+    }
+}

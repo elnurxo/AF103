@@ -1,0 +1,71 @@
+#cards {
+  padding: 100px 0px;
+}
+#cards .title {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 30px;
+  letter-spacing: 1px;
+  color: green;
+  margin-bottom: 50px;
+}
+#cards .card {
+  margin: 0px 15px 30px 15px;
+  padding-bottom: 20px;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+#cards .card .card-img {
+    border-radius: 5px;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+#cards .card .card-player {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+#cards .card .card-img .artist-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 300ms linear;
+}
+#cards .card .card-details {
+  padding: 20px 0px;
+  text-align: center;
+}
+#cards .card .card-details .artist-name {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+#cards .card .card-details .song-name {
+  color: gray;
+}
+#cards .card .cd-player {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin: 0 auto;
+  overflow: hidden;
+  animation: spinner 2s infinite linear;
+}
+#cards .card .cd-player img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.card:hover .artist-img {
+  transform: scale(1.2);
+}
+@keyframes spinner {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
