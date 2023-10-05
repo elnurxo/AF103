@@ -29,7 +29,8 @@ header nav .logo img {
     object-fit: cover;
 }
 header nav .search-bar input {
-    border-radius: 5px;
+    border-radius: 8px;
+    width: 250px;
     border: none;
     padding: 10px 20px;
 }
@@ -58,4 +59,9 @@ header nav .links li a {
     header nav .search-bar, header nav .links  {
         display: none;
     }
+}
+@media only screen and (max-width:576px) {
+   header nav{
+     padding: 0px 30px;
+   }
 }

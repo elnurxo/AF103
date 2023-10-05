@@ -1,0 +1,129 @@
+.wrapper__item, .wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  font-family: "Cambria";
+  border-radius: 5px;
+  padding: 10px 20px;
+  border: none;
+  border: 1px solid rgb(12, 12, 12);
+  font-size: 18px;
+  color: whitesmoke;
+}
+
+.btn-danger {
+  background-color: red;
+}
+
+.btn-success {
+  background-color: green;
+}
+
+.btn-primary {
+  background-color: skyblue;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  border: 1px solid black;
+}
+ul .list-item {
+  font-weight: bold;
+  margin: 0 15px;
+}
+ul .list-item:hover {
+  color: red;
+  cursor: pointer;
+}
+ul .list-item:nth-child(even) {
+  color: blue;
+}
+ul .list-item::after {
+  content: "";
+  display: block;
+}
+ul .list-item::selection {
+  background-color: black;
+}
+
+.nav {
+  border: 2px solid gray;
+}
+.nav__list {
+  color: red;
+}
+.nav__list__item {
+  background-color: blue;
+}
+.nav__list__item--disabled {
+  border-radius: 5px;
+}
+
+.wrapper {
+  border: 1px solid black;
+  width: 80%;
+  margin: 50px auto;
+  height: 500px;
+}
+.wrapper__item {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+}
+.wrapper__item__btn {
+  color: white;
+}
+
+.btn-danger {
+  border: 1px solid indianred;
+  border-radius: 5px;
+  padding: 10px 20px;
+  color: white;
+  background-color: red;
+  transition: 0.4s linear;
+}
+.btn-danger:hover {
+  background-color: orange;
+}
+
+.btn-secondary {
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 10px 20px;
+  color: white;
+  background-color: gray;
+  transition: 0.4s linear;
+}
+.btn-secondary:hover {
+  background-color: rgb(40, 23, 23);
+}
+
+.btn-info {
+  border: 1px solid yellow;
+  border-radius: 0px;
+  padding: 10px 20px;
+  color: white;
+  background-color: orange;
+  transition: 0.4s linear;
+}
+.btn-info:hover {
+  background-color: rgb(143, 145, 40);
+}
+
+.btn-primary {
+  border: 1px solid rgb(11, 11, 54);
+  border-radius: 7px;
+  padding: 10px 20px;
+  color: white;
+  background-color: skyblue;
+  transition: 0.4s linear;
+}
+.btn-primary:hover {
+  background-color: blue;
+}/*# sourceMappingURL=index.css.map */

@@ -1,0 +1,93 @@
+@use "./variables" as *;
+
+.btn {
+    font-family: $secondary-font;
+    border-radius: 5px;
+    padding: 10px 20px;
+    border: none;
+    border: $border;
+    font-size: $paragraph-size;
+    color: $text-color;
+}
+
+.btn-danger {
+    background-color: $danger-color;
+}
+
+.btn-success {
+    background-color: $success-color;
+}
+
+.btn-primary {
+    background-color: $primary-color;
+}
+ul{
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    border: 1px solid black;
+    .list-item{
+        font-weight: bold;
+        margin: 0 15px;
+        &:hover{
+            color: red;
+            cursor: pointer;
+        }
+        &:nth-child(even){
+            color: blue;
+        }
+        &::after{
+            content: '';
+            display: block;
+        }
+        &::selection{
+            background-color: black;
+        }
+    }
+  
+}
+.nav{
+    border: 2px solid gray;
+    // & = .nav
+    &__list{
+        color: red;
+        &__item{
+            background-color: blue;
+            &--disabled{
+                border-radius: 5px;
+            }
+        }
+    }
+}
+.wrapper{
+    border: 1px solid black;
+    width: 80%;
+    margin: 50px auto;
+    height: 500px;
+    @extend %center-element;
+    &__item{
+       @extend %center-element;
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        &__btn{
+            color: white;
+        }
+    }
+}
+
+
+
+.btn-danger{
+    @include btn-mixin(5px,red,orange,indianred);
+}
+.btn-secondary{
+    @include btn-mixin(10px,gray,rgb(40, 23, 23))
+}
+.btn-info{
+    @include btn-mixin(0px,orange,rgb(143, 145, 40),yellow);
+}
+.btn-primary{
+    @include btn-mixin(7px,skyblue,blue,rgb(11, 11, 54))
+}

@@ -1,0 +1,11 @@
+@mixin btn-mixin($borderRadius,$bgc,$bgcHover,$border-color:black){
+    border: 1px solid $border-color;
+    border-radius: $borderRadius;
+    padding: 10px 20px;
+    color: white;
+    background-color: $bgc;
+    transition: .4s linear;
+    &:hover{
+        background-color: $bgcHover;
+    }
+}
