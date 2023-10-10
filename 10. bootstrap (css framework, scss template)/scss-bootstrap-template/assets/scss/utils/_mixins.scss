@@ -1,0 +1,34 @@
+@mixin createBtn($bgc:$main-color){
+    border-radius: 20px;
+    padding: 8px 25px;
+    margin-left: 22px;
+    color: $light-color;
+    font-family: $main-font;
+    background-color: $bgc;
+    border: none;
+}
+
+//media query
+@mixin for-phone($breakpoint){
+    @media only screen and (max-width:$breakpoint) {
+        @content;
+    }
+}
+
+@mixin for-tablet($breakpoint){
+    @media only screen and (max-width:$breakpoint) {
+        @content;
+    }
+}
+
+@mixin for-desktop($breakpoint){
+    @media only screen and (max-width:$breakpoint) {
+        @content;
+    }
+}
+
+@mixin custom-breakpoint($breakpoint){
+    @media only screen and (max-width:$breakpoint) {
+        @content;
+    }
+}

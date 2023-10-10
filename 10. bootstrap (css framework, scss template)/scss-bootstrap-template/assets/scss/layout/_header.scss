@@ -1,0 +1,88 @@
+header{
+    height: 80px;
+    background-color: $light-color;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    .nav{
+        height: 100%;
+        &__logo{
+            &--title{
+                color: $main-color;
+                text-transform: uppercase;
+                font-weight: bold;
+                font-size: 30px;
+            }
+        }
+        &__links{
+            @include for-tablet(992px){
+                display: none;
+            }
+            display: flex;
+            align-items: center;
+            &__item{
+                margin-right: 10px;
+                a{
+                    @include custom-breakpoint(1200px){
+                        font-size: 14px;
+                        padding: 10px 0 10px 12px;
+
+                    }
+                    padding: 10px 0 10px 30px;
+                    font-family: $main-font;
+                    color: $title-color;
+                    transition: .3s linear;
+                    &:hover{
+                        color: $main-color;
+                    }
+                }
+            }
+        }
+    }
+}
+.links__btn{
+    display: flex;
+    align-items: center;
+}
+.nav__mobile--menu{
+    display: none;
+    @include for-tablet(992px){
+        display: block;
+    }
+    margin-left: 12px;
+    i{
+        font-size: 22px;
+        color: $title-color;
+    }
+}
+.drop__down{
+    cursor: pointer;
+    transition: .3s linear;
+    &:hover span{
+        color: $main-color;
+    }
+    &:hover ul{
+        top: 100%;
+        visibility: visible;
+        opacity: 1;
+    }
+    position: relative;
+    ul{
+        padding: 20px;
+        position: absolute;
+        top: 250%;
+        visibility: hidden;
+        opacity: 0;
+        width: 200px;
+        background-color: $light-color;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        border-radius: 5px;
+        transition: .3s linear;
+        li{
+            line-height: 34px;
+            cursor: pointer;
+                transition: .3s linear;
+                &:hover{
+                    color: $main-color;
+                }
+        }
+    }
+}
