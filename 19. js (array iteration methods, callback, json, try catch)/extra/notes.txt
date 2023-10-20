@@ -1,0 +1,4 @@
+instance of, try catch, throwing error, protected, JSON stringify, parse , HOF
+
+#age
+_age
