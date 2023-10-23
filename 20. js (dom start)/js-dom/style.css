@@ -1,0 +1,15 @@
+/* .box{
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+}
+.active{
+    background-color: yellow;
+    border-color: orange;
+} */
+
+.box{
+    width: 100px;
+    height: 100px;
+    background-color: orange;
+}
