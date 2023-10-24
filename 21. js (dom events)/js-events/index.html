@@ -1,0 +1,51 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .outer-box{
+            margin: 30px auto;
+            width: 400px;
+            height: 400px;
+            background-color: blue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color:orange;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .inner-box{
+            width: 200px;
+            height: 200px;
+            background-color: green;
+        }
+        body{
+            height: 200vh;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <!-- <div class="outer-box">
+        <div class="box">
+            <div class="inner-box"></div>
+        </div>
+    </div> -->
+    <!-- <button>click me!</button>
+    <div class="box"></div> -->
+    <form id="form" action="">
+        <input autocomplete="off" id="name" type="text" placeholder="name">
+        <input id="surname" type="text" placeholder="surname">
+        <input id="isMarried" type="checkbox">
+        <button type="submit">add new human</button>
+    </form>
+    <ul id="list"></ul>
+    <script src="./main.js"></script>
+</body>
+</html>
