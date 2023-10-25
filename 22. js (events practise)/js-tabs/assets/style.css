@@ -1,0 +1,42 @@
+.tabs-header-wrapper{
+    display: flex;
+    justify-content: center;
+}
+.tabs-header-wrapper ul{
+    list-style: none;
+    gap: 10px;
+}
+.tabs-header-wrapper ul li{
+    width: 150px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 7px;
+}
+.tabs-header-wrapper ul li i{
+    color: white;
+    font-size: 30px;
+}
+
+.tabs-content-wrapper ul{
+    list-style: none;
+}
+.tabs-content-wrapper ul li{
+    border-radius: 6px;
+    padding: 20px;
+}
+.tabs-content{
+    color: white;
+    transition: .3s linear;
+}
+.tabs-content-active{
+    display: flex;
+    visibility: visible;
+    opacity: 1;
+}
+.tabs-content i{
+    font-size: 60px;
+    margin-left: 15px;
+    color: white;
+}
