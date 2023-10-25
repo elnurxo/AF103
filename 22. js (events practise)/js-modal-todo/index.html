@@ -1,0 +1,70 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./assets/style.css">
+    <title>JS</title>
+</head>
+
+<body>
+    <section id="to-do">
+        <div class="container mt-4">
+            <div class="row justify-content-center">
+                <div class="col-4">
+                    <form id="form" class="d-flex">
+                        <input class="form-control mx-2" type="text" placeholder="add to do" id="add-input">
+                        <button type="submit" class="btn btn-warning add-btn">ADD</button>
+                    </form>
+                    <span class="d-none text-center mb-2 text-danger error-span">input length should be min 5 chars!</span>
+                    <ul class="list-group">
+                        <li class="list-group-item empty-to-do">
+                            <p class=" text-center fw-bold text-danger">Nothing To Do!</p>
+                        </li>
+                      </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="my-4">
+    <section id="cards">
+        <div class="container">
+            <h1 class="text-center">Cards</h1>
+            <div class="row justify-content-center">
+               <div class="col-4">
+                    <form id="add-human">
+                        <div class="full-name-wrapper">
+                            <label for="fullname">Full Name</label>
+                            <input class="form-control" type="text" id="fullname" placeholder="enter full name">
+                        </div>
+                        <div class="image-wrapper">
+                            <label for="image">Image Link</label>
+                            <input class="form-control" type="text" id="image" placeholder="enter image link">
+                        </div>
+                        <div class="age-wrapper">
+                            <label for="age">Age</label>
+                            <input class="form-control" type="number" min="0" id="age" placeholder="enter age">
+                        </div>
+                        <button type="submit" class="d-block mx-auto mt-2 btn btn-warning">ADD Card</button>
+                    </form>
+               </div>
+            </div>
+            <div class="row cards-wrapper">
+            </div>
+        </div>
+    </section>
+
+    <div class="my-modal">
+    </div>
+    <script src="./assets/main.js"></script>
+</body>
+
+</html>

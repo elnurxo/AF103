@@ -1,0 +1,47 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- font awesome cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- bootstrap cdn -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- google fonts cdn -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+        rel="stylesheet">
+    <!-- custom css -->
+    <link rel="stylesheet" href="./assets/style.css">
+    <title>JS to-do</title>
+</head>
+
+<body>
+    <div class="to-do-wrapper">
+        <div class="to-do">
+            <h4>Todo App</h4>
+            <form id="add-todo-form" class="d-flex mb-3">
+                <input id="add-todo-inp" class="form-control" type="text" placeholder="Add your new todo">
+                <button type="submit" class="btn btn-purple add-todo-btn"><i class="fa-solid fa-plus"></i></button>
+            </form>
+            <span class="d-none error text-danger text-center error-msg">Input is required!</span>
+            <!-- todo list -->
+            <ul class="to-do-list m-0 p-0">
+            </ul>
+            <!-- clear all -->
+            <div class="clear-all-wrapper d-flex justify-content-between align-items-center mt-4">
+                <span>You have <span class="count text-danger">no</span> pending tasks</span>
+                <button class="btn btn-purple clear-all-btn">Clear All</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="./assets/main.js"></script>
+</body>
+
+</html>
