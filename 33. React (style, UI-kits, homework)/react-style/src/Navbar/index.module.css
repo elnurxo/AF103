@@ -1,0 +1,11 @@
+.btn {
+  padding: 10px 20px;
+  border-radius: 10px;
+  transition: 0.4s linear;
+}
+.btn-primary {
+  background-color: indianred;
+}
+.btn:hover {
+  background-color: red;
+}

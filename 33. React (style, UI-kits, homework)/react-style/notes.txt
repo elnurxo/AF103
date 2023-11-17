@@ -1,0 +1,7 @@
+1. Inline
+2. Inline (external object)
+3. external
+4. module css
+5. styled component
+6. node-sass (sass compiler)
+7. UI kits (Material UI, Chakra UI, AntDesign, React Bootstrap, Tailwind, Bulma)
