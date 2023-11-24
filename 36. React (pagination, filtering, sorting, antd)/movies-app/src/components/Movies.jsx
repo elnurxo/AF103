@@ -15,18 +15,26 @@ import {
   TextField,
   CircularProgress,
   Pagination,
+  Select,
+  MenuItem,
 } from "@mui/material";
 import MovieIcon from "@mui/icons-material/Movie";
 import { useState } from "react";
 // import useFetch from "../hooks/useFetch";
 
+let years = ['show all years'];
+for (let i = 1960; i <= new Date().getFullYear(); i++) {
+    years.push(i)
+}
+
 export default function Movies() {
   let [search, setSearch] = useState("");
+  let [data, setData] = useState({ query: "", year: years[0]});
   let [movies, setMovies] = useState([]);
   let [loading, setLoading] = useState(false);
   let [error, setError] = useState(null);
-  let[pages,setPages] = useState(0);
-
+  let [pages, setPages] = useState(0);
+  let[currentPage, setCurrentPage] = useState(1);
   return (
     <>
       <CssBaseline />
@@ -82,10 +90,26 @@ export default function Movies() {
                   setSearch(e.target.value);
                 }}
               />
+              <Select
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                value={data.year}
+                label="Year"
+                onChange={(e)=>{
+                  console.log(e.target.value);
+                  setData({...data, year: e.target.value});
+                }}
+              >
+                {years && years.map((year)=>{
+                  return <MenuItem value={year}>{year}</MenuItem>
+                })}
+                
+              </Select>
               <Button
                 onClick={() => {
+                  setCurrentPage(1);
                   setLoading(true);
-                  fetch(`https://www.omdbapi.com/?s=${search}&apikey=f4bfe88b`)
+                  fetch(`https://www.omdbapi.com/?s=${search}&y=${data.year}&page=1&apikey=f4bfe88b`)
                     .then((res) => {
                       if (!res.ok) {
                         throw new Error("failed!");
@@ -94,10 +118,11 @@ export default function Movies() {
                     })
                     .then((data) => {
                       setMovies(data);
-                      setPages(Math.ceil((Number(data.totalResults)/10)));
+                      setPages(Math.ceil(Number(data.totalResults) / 10));
                     })
                     .catch((err) => setError(err))
                     .finally(() => setLoading(false));
+                  setData({ query: search, year: data.year });
                   setSearch("");
                 }}
                 variant="outlined"
@@ -152,8 +177,38 @@ export default function Movies() {
           </Grid>
 
           {movies.Search?.length > 0 && (
-            <div style={{ display: "flex", justifyContent: "center", marginTop:'40px' }}>
-              <Pagination count={pages} variant="outlined" shape="rounded" />
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                marginTop: "40px",
+              }}
+            >
+              <Pagination
+                onChange={(e, page) => {
+                  setLoading(true);
+                  setCurrentPage(page);
+                  fetch(
+                    `https://www.omdbapi.com/?s=${data.query}&page=${currentPage}&apikey=f4bfe88b`
+                  )
+                    .then((res) => {
+                      if (!res.ok) {
+                        throw new Error("failed!");
+                      }
+                      return res.json();
+                    })
+                    .then((data) => {
+                      setMovies(data);
+                    })
+                    .catch((err) => setError(err))
+                    .finally(() => setLoading(false));
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }}
+                count={pages}
+                page={currentPage}
+                variant="outlined"
+                shape="rounded"
+              />
             </div>
           )}
         </Container>
