@@ -1,11 +1,15 @@
 import React, { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { add_todo, mark_todo } from "../redux/slices/todoSlice";
+import { add_todo, edit_todo, mark_todo } from "../redux/slices/todoSlice";
 import DeleteTodo from "./DeleteTodo";
+
+
 const Todos = () => {
   let todos = useSelector((state) => state.todos.todos);
   let inputRef = useRef();
   let dispatch = useDispatch();
+
+
   return (
     <>
       <form onSubmit={(e)=>{
@@ -24,6 +28,9 @@ const Todos = () => {
                     dispatch(mark_todo(todo.id));
                 }}>{todo.isCompleted ? "undo" : "done"}</button>
                 <DeleteTodo id={todo.id}/>
+                <button onClick={()=>{
+                  dispatch(edit_todo({id:todo.id, updatedTodo:{text:'updated'}}));
+                }}>edit</button>
             </React.Fragment>
         })}
       </ul>

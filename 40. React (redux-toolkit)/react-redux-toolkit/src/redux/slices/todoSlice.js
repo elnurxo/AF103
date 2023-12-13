@@ -2,6 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   todos: [],
+  loading:false,
+  error: null
 };
 
 if (JSON.parse(localStorage.getItem("todos"))) {
@@ -9,6 +11,7 @@ if (JSON.parse(localStorage.getItem("todos"))) {
 } else {
   localStorage.setItem("todos", JSON.stringify([]));
 }
+
 
 const todoSlice = createSlice({
   name: "todo",
@@ -27,19 +30,29 @@ const todoSlice = createSlice({
     delete_todo: (state, action) => {
       let idx = state.todos.findIndex((x) => x.id == action.payload);
       state.todos.splice(idx, 1);
-      localStorage.setItem("todos",JSON.stringify([...state.todos]))
+      localStorage.setItem("todos", JSON.stringify([...state.todos]));
     },
     mark_todo: (state, action) => {
       state.todos.map((todo) => {
         if (todo.id == action.payload) {
           todo.isCompleted = !todo.isCompleted;
         }
-        localStorage.setItem("todos",JSON.stringify([...state.todos]));
+        localStorage.setItem("todos", JSON.stringify([...state.todos]));
+      });
+    },
+    edit_todo: (state, action) => {
+      state.todos.map((todo) => {
+        if (todo.id === action.payload.id) {
+          todo.text = action.payload.updatedTodo.text;
+        }
+        localStorage.setItem("todos", JSON.stringify([...state.todos]));
       });
     },
   },
 });
 
-export const { add_todo, delete_todo, mark_todo } = todoSlice.actions;
+
+export const { add_todo, delete_todo, mark_todo, edit_todo } =
+  todoSlice.actions;
 
 export default todoSlice.reducer;

@@ -1,7 +1,13 @@
+import { Helmet } from "react-helmet"
 
 const Dashboard = () => {
   return (
-    <div>Dashboard</div>
+    <>
+      <Helmet>
+        <title>Admin Dashboard</title>
+      </Helmet>
+      <div>Dashboard</div>
+    </>
   )
 }
 
