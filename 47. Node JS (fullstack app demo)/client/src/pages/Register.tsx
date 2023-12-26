@@ -2,8 +2,8 @@ import { Typography } from "@mui/material";
 import { Col, Row } from "antd";
 import { Tabs } from "antd";
 import type { TabsProps } from "antd";
-import UserSignUp from "./UserSignUp";
-import ArtistsSignUp from "./ArtistsSignUp";
+import UserSignUp from "../components/UserSignUp";
+import ArtistsSignUp from "../components/ArtistsSignUp";
 
 const Register = () => {
   const onChange = (key: string) => {
@@ -25,7 +25,7 @@ const Register = () => {
   return (
     <Row style={{ justifyContent: "center", marginTop: "40px" }}>
       <Col span={8} xl={8} md={24} xs={24}>
-        <form
+        <div
           style={{
             boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px",
             padding: "20px 25px",
@@ -41,7 +41,7 @@ const Register = () => {
             alignItems:'center',
             margin:'20px auto'
           }} defaultActiveKey="1" items={items} onChange={onChange} />
-        </form>
+        </div>
       </Col>
     </Row>
   );

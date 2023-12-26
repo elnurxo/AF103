@@ -9,6 +9,7 @@ app.use(cors());
 require('./config/db');
 const router = require('./routers');
 
+
 app.use('/api/artists', router.artist);
 app.use('/api/songs', router.song);
 

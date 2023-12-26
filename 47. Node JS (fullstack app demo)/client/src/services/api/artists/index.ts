@@ -34,3 +34,31 @@ export const getArtistByID = async(id: number | string):Promise<Artist | undefin
         return undefined;
     }
 }
+
+export const registerArtist = async(newArtist: Artist): Promise<Artist | undefined>=>{
+    let postedArtist: Artist | undefined = undefined;
+    await axios.post(`${BASE_URL}/artists/register`, newArtist).then((res: AxiosResponse)=>{
+       postedArtist = res.data;
+    });
+
+    if (postedArtist) {
+        return postedArtist;
+    }
+    else{
+        return undefined;
+    }
+}
+
+export const loginArtist = async(currentArtist: {email: string, password: string}): Promise<{status: number,message: string} | undefined>=>{
+   let result = undefined;
+    await axios.post(`${BASE_URL}/artists/login`, currentArtist)
+    .then((res: AxiosResponse)=>{
+        result = res.data;
+    });
+    if (result) {
+        return result;
+    }
+    else{
+        return undefined;
+    }
+}
