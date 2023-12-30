@@ -5,6 +5,7 @@ import { useFormik } from "formik";
 import { toFormikValidationSchema } from 'zod-formik-adapter';
 import ArtistsSignUpSchema from "../validation/artistSignUpValidation";
 import { registerArtist } from "../services/api/artists";
+import Swal from "sweetalert2";
 
 const ArtistsSignUp = () => {
   const formik = useFormik({
@@ -35,9 +36,22 @@ const ArtistsSignUp = () => {
       };
 
       registerArtist(newArtist).then((res)=>{
-        console.log(res);
+        console.log('response: ', res);
+        if (res) {
+          Swal.fire({
+            position: "bottom-end",
+            icon: res.message == 'signed up successfully!' ? 'success' : 'warning',
+            title: res.message,
+            showConfirmButton: false,
+            timer: 1500
+          });
+          if (res.message == 'signed up successfully!') {
+              actions.resetForm();
+          }
+        }
+       
       });
-      actions.resetForm();
+     
     },
   });
 

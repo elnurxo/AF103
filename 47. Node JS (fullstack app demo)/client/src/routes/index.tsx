@@ -4,6 +4,7 @@ import Home from "../pages/Home";
 import Login from "../pages/Login";
 import MainRoot from "../pages/MainRoot";
 import NotFound from "../pages/NotFound";
+import Profile from "../pages/Profile";
 import Register from "../pages/Register";
 import SongDetail from "../pages/SongDetail";
 
@@ -35,6 +36,10 @@ export const ROUTES = [
             {
                 path: 'register',
                 element: <Register/>
+            },
+            {
+                path: 'profile',
+                element: <Profile/>
             },
             {
                 path: '*',

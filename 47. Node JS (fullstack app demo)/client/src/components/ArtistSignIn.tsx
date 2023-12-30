@@ -1,12 +1,15 @@
 import { Link } from "react-router-dom";
 import styles from "../pages/usersignup.module.css";
 import { useFormik } from "formik";
-import { loginArtist } from "../services/api/artists";
+import { getAllArtists, loginArtist } from "../services/api/artists";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import { useAuthContext } from "../services/context/AuthContext";
+import Cookies from 'js-cookie';
 
 const ArtistsSignIn = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
+  const[auth, setAuth] = useAuthContext();
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -21,8 +24,8 @@ const ArtistsSignIn = () => {
         password: values.password,
       };
 
-      loginArtist(artist).then((res)=>{
-        console.log(res)
+      loginArtist(artist).then(async(res)=>{
+        console.log('FRONT LOGIN ARTIST: ',res);
         if (res?.status == 401) {
             Swal.fire({
                 position: "bottom-end",
@@ -33,16 +36,23 @@ const ArtistsSignIn = () => {
               });
         }
         else{
-           if (res) {
+          if (res && res.status==200 && res.token) {
+              await Cookies.set('token', res.token, { expires: 7,secure: true });
+
+              const artists = await getAllArtists();
+              const currentLoggedInArtist = artists.find((x)=>x.email==artist.email);
+              setAuth(currentLoggedInArtist);
+
+              navigate('/')
+
             Swal.fire({
                 position: "bottom-end",
                 icon: "success",
-                title: res.message,
+                title: `welcome back ${currentLoggedInArtist?.username}`,
                 showConfirmButton: false,
                 timer: 1500
               });
            }
-           navigate('/');
         }
       });
       actions.resetForm();
@@ -77,7 +87,7 @@ const ArtistsSignIn = () => {
         {formik.errors.password && formik.touched.password && <span style={{color: 'red'}}>{formik.errors.password}</span>}
       </label>
     
-      <button type="submit" className={styles.submit} style={{ backgroundColor: "seagreen" }}>
+      <button style={{backgroundColor: formik.isSubmitting ? "red" : "seagreen"}} disabled={(Object.keys(formik.errors).length>0 || formik.isSubmitting) ? true :false} type="submit" className={styles.submit}>
         Sign In
       </button>
       <p className={styles.signin}>

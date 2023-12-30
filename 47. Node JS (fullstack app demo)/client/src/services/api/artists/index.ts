@@ -1,17 +1,27 @@
 import axios, { AxiosResponse } from "axios";
 import BASE_URL from "../baseURL";
+import Cookies from 'js-cookie';
 
 
 export const getAllArtists = async(name?: string):Promise<Artist[]>=>{
     let artists: Artist[] = [];
+    const token = await Cookies.get('token');
     if (name) {
-        await axios.get(`${BASE_URL}/artists?name=${name}`)
+        await axios.get(`${BASE_URL}/artists?name=${name}`,{
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        })
         .then((res: AxiosResponse )=>{
             artists = res.data;
         } )
     }
     else{
-        await axios.get(`${BASE_URL}/artists`)
+        await axios.get(`${BASE_URL}/artists`,{
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        })
         .then((res: AxiosResponse )=>{
             artists = res.data;
         } )
@@ -22,7 +32,12 @@ export const getAllArtists = async(name?: string):Promise<Artist[]>=>{
 
 export const getArtistByID = async(id: number | string):Promise<Artist | undefined>=>{
     let artist: Artist | undefined = undefined;
-    await axios.get(`${BASE_URL}/artists/${id}`)
+    const token = await Cookies.get('token');
+    await axios.get(`${BASE_URL}/artists/${id}`,{
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    })
     .then((res: AxiosResponse )=>{
         artist = res.data;
     } )
@@ -35,7 +50,9 @@ export const getArtistByID = async(id: number | string):Promise<Artist | undefin
     }
 }
 
-export const registerArtist = async(newArtist: Artist): Promise<Artist | undefined>=>{
+type ArtistRegisterType = Artist & {message: string};
+
+export const registerArtist = async(newArtist: Artist): Promise<ArtistRegisterType | undefined>=>{
     let postedArtist: Artist | undefined = undefined;
     await axios.post(`${BASE_URL}/artists/register`, newArtist).then((res: AxiosResponse)=>{
        postedArtist = res.data;
@@ -49,7 +66,7 @@ export const registerArtist = async(newArtist: Artist): Promise<Artist | undefin
     }
 }
 
-export const loginArtist = async(currentArtist: {email: string, password: string}): Promise<{status: number,message: string} | undefined>=>{
+export const loginArtist = async(currentArtist: {email: string, password: string}): Promise<{status: number,message: string, token?: string} | undefined>=>{
    let result = undefined;
     await axios.post(`${BASE_URL}/artists/login`, currentArtist)
     .then((res: AxiosResponse)=>{

@@ -3,13 +3,21 @@ import { Col, Row, Card, Typography } from "antd";
 import Meta from "antd/es/card/Meta";
 import { ChangeEvent, useEffect } from "react";
 import { getAllArtists } from "../services/api/artists";
-import { Link } from "react-router-dom";
-import { useArtistContext } from "../context/ArtistContext";
+import { Link, useNavigate } from "react-router-dom";
+import { useArtistContext } from "../services/context/ArtistContext";
+import { useAuthContext } from "../services/context/AuthContext";
 
 const Artists = () => {
   // const[artists, setArtists] = useState<Artist[]>([]);
   const[artists, setArtists] = useArtistContext();
-
+  const[auth] = useAuthContext();
+  const navigate = useNavigate();
+  useEffect(()=>{
+    if (auth==undefined) {
+      navigate('/login');
+    }
+  },[auth,navigate]);
+  
   useEffect(()=>{
     getAllArtists().then((res)=>{
       setArtists(res);
@@ -61,15 +69,15 @@ const Artists = () => {
                 height={250}
                 style={{objectFit:'cover',objectPosition:'top center'}}
                   alt="example"
-                  src={artist.imageURL}
+                  src={artist.profileImage}
                 />
               }
             >
                <Typography style={{marginBottom:'10px'}}>
-                <Link to={`/artists/${artist._id}`}><b>{artist.name}</b></Link>
+                <Link to={`/artists/${artist._id}`}><b>{artist.stageName}</b></Link>
                </Typography>
               <Meta description={artist.genre} />
-              <Typography>age: <b>{artist.age}</b></Typography>
+              <Typography>birth date: <b>{artist.birthDate}</b></Typography>
             </Card>
           </Col>
           })}
